@@ -2,7 +2,7 @@ import type { FieldErrors, UseFormRegister } from "react-hook-form";
 
 import { z } from "zod";
 import { loginSchema } from "../../Schema/LoginSchema";
-import InputField from "../InputField/LoginInputFeild";
+import InputField from "../InputField/LoginInputField";
 
 export type LoginFormFields = z.infer<typeof loginSchema>;
 

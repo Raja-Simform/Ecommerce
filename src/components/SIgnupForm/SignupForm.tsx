@@ -1,7 +1,7 @@
 import type { FieldErrors, UseFormRegister } from "react-hook-form";
 import type { signupSchema } from "../../Schema/SignupSchema";
 import { z } from "zod";
-import SignupField from "../InputField/SingupInputFeild";
+import SignupField from "../InputField/SingupInputField";
 export type SignupFormFeilds = z.infer<typeof signupSchema>;
 interface SignupFormProps {
   onSubmit: React.FormEventHandler<HTMLFormElement>;
