@@ -6,12 +6,14 @@ import useMutate from "../../hooks/useMutate";
 import { z } from "zod";
 import { loginSchema } from "../../Schema/LoginSchema";
 import LoginForm from "../../components/LoginForm/LoginForm";
+import { apiPaths } from "../../constants/apiPath";
+import Concatenate from "../../utility/concatenate";
 
 export type FormFields = z.infer<typeof loginSchema>;
 
 const loginApi = async (data: { username: string; password: string }) => {
   const response = await axios.post(
-    "https://playx.onrender.com/api/v1/log-in",
+    Concatenate(import.meta.env.VITE_API_DOMAIN, apiPaths.login),
     data
   );
   return response.data;

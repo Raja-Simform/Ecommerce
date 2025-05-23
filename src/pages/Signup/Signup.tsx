@@ -6,10 +6,12 @@ import type { SignupApiPayload, SignupInput } from "../SignupTypes/SignupTypes";
 import useMutate from "../../hooks/useMutate";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import SignupForm from "../../components/SIgnupForm/SignupForm";
+import { apiPaths } from "../../constants/apiPath";
+import Concatenate from "../../utility/concatenate";
 
 const signupApi = async (data: SignupApiPayload) => {
   const response = await axios.post(
-    "https://playx.onrender.com/api/v1/sign-up",
+    Concatenate(import.meta.env.VITE_API_DOMAIN, apiPaths.signup),
     data
   );
   return response.data;

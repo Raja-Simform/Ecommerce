@@ -28,7 +28,6 @@ export default function SignForm({
       noValidate
       className=" flex flex-col items-center w-[30rem] mx-auto p-4 bg-white rounded-md shadow-md"
     >
-      {" "}
       <label
         className="block mb-2 text-2xl font-bold text-gray-700"
         htmlFor="name"
