@@ -1,5 +1,5 @@
 export const RuleMesseges = {
-  UserNameRequired: "Name must be at least 2 characters",
+  UserNameRequired: "Name must be at least 5 characters",
   PasswordRequired: "Password must be at least 6 characters",
   EmailRequired: "Invalid email address",
   CallNameRequired: "Please tell us what to call you",
