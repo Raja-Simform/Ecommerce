@@ -7,7 +7,6 @@ interface PrivateRouterProps{
 export default function PrivateRouter({children}:PrivateRouterProps){
    const token=localStorage.getItem('token');
    if(token){
-    localStorage.removeItem('token');
     return<>
     {
       children

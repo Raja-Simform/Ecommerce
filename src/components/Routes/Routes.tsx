@@ -1,7 +1,7 @@
 import Home from "../../pages/Home/Home";
 import Login from "../../pages/Login/Login";
 import Product from "../../pages/Product/Product";
-import SignupForm from "../../pages/Signup/SIgnup";
+import Signup from "../../pages/Signup/Signup";
 import Layout from "../Layout/Layout";
 
 export interface RouteItem {
@@ -34,7 +34,7 @@ export const routes:RouteItem[]=[
   },
   {
     path:"/signup",
-    element:SignupForm
+    element:Signup
   },
   {
     path:'*',
