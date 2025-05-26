@@ -1,9 +1,11 @@
 import { useState } from "react";
 import type { CardProps, Product } from "./CardType";
-
+import rupee from "../../assets/rupee.png";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
 export default function Card<T extends Product>({ Products }: CardProps<T>) {
   const [toggle, setToggle] = useState<"grid" | "list">("grid");
-
+  dayjs.extend(relativeTime);
   return (
     <div className="flex flex-col items-center p-2 w-full box-border">
       <div className="flex gap-2 m-3">
@@ -41,8 +43,12 @@ export default function Card<T extends Product>({ Products }: CardProps<T>) {
               {product.username}
             </h2>
             <p className="m-0 mb-1 text-gray-500 text-sm">{product.email}</p>
-            <p className="m-0 font-bold text-blue-600">
-              Price: {product.mobileNumber.slice(-3)}
+            <div className=" flex  items-center gap-1  m-0 font-bold text-blue-600">
+              <img src={rupee} alt="" className="h-5" />{" "}
+              <span>{product.mobileNumber.slice(-3)}</span>
+            </div>
+            <p className="text-xs text-gray-400 mt-1">
+              {dayjs(product.createdAt).fromNow()}
             </p>
           </div>
         ))}

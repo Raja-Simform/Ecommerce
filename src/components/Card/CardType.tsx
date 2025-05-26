@@ -3,8 +3,9 @@ export interface Product {
   username: string;
   email: string;
   mobileNumber: string;
+  createdAt: string;
 }
 
-export  interface CardProps<T extends Product> {
+export interface CardProps<T extends Product> {
   Products: T[];
 }

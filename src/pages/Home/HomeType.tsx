@@ -3,6 +3,7 @@ interface Product {
   username: string;
   email: string;
   mobileNumber: string;
+  createdAt: string;
 }
 
 export default interface ApiResponse {

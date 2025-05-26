@@ -48,7 +48,7 @@ export default function Navbar() {
         {logout && (
           <button
             onClick={handleLogout}
-            className="absolute right-0 mt-2 w-24 rounded-md border border-gray-300 bg-amber-50 px-4 py-2 text-center text-sm font-medium shadow hover:bg-amber-100 focus:outline-none focus:ring-2 focus:ring-amber-400"
+            className="absolute right-0 mt-2 w-24 rounded-md borde text-black  border-gray-300 px-4 py-2 text-center text-sm font-medium shadow bg-amber-300 hover:bg-amber-100 focus:outline-none focus:ring-2"
           >
             Logout
           </button>

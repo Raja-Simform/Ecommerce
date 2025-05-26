@@ -14,6 +14,7 @@ const signupApi = async (data: SignupApiPayload) => {
     Concatenate(import.meta.env.VITE_API_DOMAIN, apiPaths.signup),
     data
   );
+  console.log(response.data);
   return response.data;
 };
 
