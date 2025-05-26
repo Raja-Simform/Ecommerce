@@ -1,11 +1,10 @@
 import { useState } from "react";
-import type { CardProps, Product } from "./CardType";
+import  { type CardProps, View } from "./CardType";
 import rupee from "../../assets/rupee.png";
 import dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime";
-export default function Card<T extends Product>({ Products }: CardProps<T>) {
-  const [toggle, setToggle] = useState<"grid" | "list">("grid");
-  dayjs.extend(relativeTime);
+
+export default function Card({ products }: CardProps) {
+  const [toggle, setToggle] = useState<View>(View.Grid);
   return (
     <div className="flex flex-col items-center p-2 w-full box-border">
       <div className="flex gap-2 m-3">
@@ -13,7 +12,7 @@ export default function Card<T extends Product>({ Products }: CardProps<T>) {
           className={`mt-1 right-1 z-10 border px-4 py-2 rounded  ${
             toggle === "grid" ? "bg-amber-300" : "bg-amber-50"
           }`}
-          onClick={() => setToggle("grid")}
+          onClick={() => setToggle(View.Grid)}
         >
           Grid
         </button>
@@ -21,7 +20,7 @@ export default function Card<T extends Product>({ Products }: CardProps<T>) {
           className={`mt-1 right-1 z-10 border px-4 py-2 rounded  ${
             toggle === "list" ? "bg-amber-300" : "bg-amber-50"
           }`}
-          onClick={() => setToggle("list")}
+          onClick={() => setToggle(View.List)}
         >
           List
         </button>
@@ -34,7 +33,7 @@ export default function Card<T extends Product>({ Products }: CardProps<T>) {
             : "flex flex-col w-full"
         }
       >
-        {Products.map((product) => (
+        {products.map((product) => (
           <div
             key={product.id}
             className="border border-gray-300 rounded-lg p-4 mb-4  bg-white"

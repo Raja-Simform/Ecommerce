@@ -3,11 +3,11 @@ import user from "../../assets/user.png";
 import { useState } from "react";
 
 export default function Navbar() {
-  const [logout, setLogout] = useState(false);
+  const [isLogoutMenuOpen, setIsLogoutMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   function handleClick() {
-    setLogout((prev) => !prev);
+    setIsLogoutMenuOpen((prev) => !prev);
   }
 
   function handleLogout() {
@@ -45,7 +45,7 @@ export default function Navbar() {
           />
         </button>
 
-        {logout && (
+        {isLogoutMenuOpen&& (
           <button
             onClick={handleLogout}
             className="absolute right-0 mt-2 w-24 rounded-md borde text-black  border-gray-300 px-4 py-2 text-center text-sm font-medium shadow bg-amber-300 hover:bg-amber-100 focus:outline-none focus:ring-2"

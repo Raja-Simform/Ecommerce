@@ -5,7 +5,7 @@ import axios from "axios";
  * @description axios instance with baseURL. everywhere in our application we will be using this instance for data fetching.
  */
 export const axiosInstance = axios.create({
-  baseURL: "https://playx.onrender.com/api/v1/",
+  baseURL: import.meta.env.VITE_API_DOMAIN,
 });
 
 /**

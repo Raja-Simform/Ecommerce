@@ -6,6 +6,10 @@ export interface Product {
   createdAt: string;
 }
 
-export interface CardProps<T extends Product> {
-  Products: T[];
+export interface CardProps {
+  products: Product[];
+}
+export enum View {
+  Grid = "grid",
+  List = "list",
 }
