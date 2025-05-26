@@ -12,7 +12,7 @@ export default function Navbar() {
          navigate('/login');
   }
   return (
-    <div className="flex items-center justify-center bg-green-600 ">
+    <div className="flex items-center justify-center bg-blue-600 ">
       <nav className="flex   items-center justify-center gap-6  p-8 text-2xl">
         <Link to="/" className="hover:underline">
           Home
