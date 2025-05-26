@@ -48,7 +48,7 @@ export default function Card<T extends Product>({ Products }: CardProps<T>) {
               <span>{product.mobileNumber.slice(-3)}</span>
             </div>
             <p className="text-xs text-gray-400 mt-1">
-              {dayjs(product.createdAt).fromNow()}
+              Added {dayjs(product.createdAt).fromNow()}
             </p>
           </div>
         ))}
