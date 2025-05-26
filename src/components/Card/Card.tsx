@@ -1,15 +1,5 @@
 import { useState } from "react";
-
-interface Product {
-  id: number;
-  username: string;
-  email: string;
-  mobileNumber: string;
-}
-
-interface CardProps<T extends Product> {
-  Products: T[];
-}
+import type { CardProps, Product } from "./CardType";
 
 export default function Card<T extends Product>({ Products }: CardProps<T>) {
   const [toggle, setToggle] = useState<"grid" | "list">("grid");
