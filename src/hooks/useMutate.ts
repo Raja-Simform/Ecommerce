@@ -2,10 +2,13 @@ import { useCallback, useState } from "react";
 
 interface UseMutateProps<T, P> {
   fn: (params: P) => Promise<T>;
-  onSuccess:(data:T)=>void;
+  onSuccess: (data: T) => void;
 }
 
-export default function useMutate<T, P>({ fn ,onSuccess}: UseMutateProps<T, P>) {
+export default function useMutate<T, P>({
+  fn,
+  onSuccess,
+}: UseMutateProps<T, P>) {
   const [data, setData] = useState<T | null>(null);
   const [error, setError] = useState<Error | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -17,7 +20,7 @@ export default function useMutate<T, P>({ fn ,onSuccess}: UseMutateProps<T, P>) 
       try {
         const result = await fn(params);
         setData(result);
-        if(onSuccess){
+        if (onSuccess) {
           onSuccess(result);
         }
         return result;
@@ -29,7 +32,7 @@ export default function useMutate<T, P>({ fn ,onSuccess}: UseMutateProps<T, P>) 
         setIsLoading(false);
       }
     },
-    [fn,onSuccess]
+    [fn, onSuccess]
   );
 
   return { data, mutate, isLoading, error };

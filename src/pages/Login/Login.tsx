@@ -24,7 +24,8 @@ export default function Login() {
   const { mutate, error, isLoading } = useMutate({
     fn: loginApi,
     onSuccess: (response) => {
-      localStorage.setItem("token", response.accessToken);
+      console.log(response);
+      localStorage.setItem("token", response.data.accessToken);
       navigate("/");
     },
   });

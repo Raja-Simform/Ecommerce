@@ -2,9 +2,9 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 interface useFetchProps<T> {
   fn: () => Promise<T>;
-  enabled: boolean;
+  enabled?: boolean;
 }
-export default function useFetch<T>({ fn, enabled }: useFetchProps<T>) {
+export default function useFetch<T>({ fn, enabled=true }: useFetchProps<T>) {
   const [data, setData] = useState<T | null>(null);
   const [error, setError] = useState<Error | null>(null);
   const [isLoading, setIsLoading] = useState(false);
