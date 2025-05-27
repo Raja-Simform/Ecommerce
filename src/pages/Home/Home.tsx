@@ -6,12 +6,12 @@ import type ApiResponse from "./HomeType";
 
 export default function Home() {
   const { data, isLoading, error } = useFetch({
-    fn: async (): Promise<ApiResponse> => {
-      const response = await axiosInstance.get<ApiResponse>(apiPaths.user);
-      return response.data;
+    fn: (): Promise<ApiResponse> => {
+      return axiosInstance
+        .get<ApiResponse>(apiPaths.user)
+        .then((res) => res.data);
     },
   });
-  
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
