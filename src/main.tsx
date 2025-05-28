@@ -5,11 +5,15 @@ import App from './App.tsx'
 import { BrowserRouter } from 'react-router-dom'
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import { ErrorBoundary } from './components/Error-Boundary/ErrorBoundary.tsx'
 dayjs.extend(relativeTime);
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
+    <ErrorBoundary>
     <App />
+    </ErrorBoundary>
+   
     </BrowserRouter>
    
   </StrictMode>,
