@@ -5,6 +5,12 @@ import dayjs from "dayjs";
 
 export default function Card({ products }: CardProps) {
   const [toggle, setToggle] = useState<View>(View.Grid);
+  function handleScollToTop(){
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    })
+  }
   return (
     <div className="flex flex-col items-center p-2 w-full box-border">
       <div className="flex gap-2 m-3">
@@ -52,6 +58,7 @@ export default function Card({ products }: CardProps) {
           </div>
         ))}
       </div>
+      <button onClick={handleScollToTop} className="fixed p-2 bg-blue-400 rounded-xl  bottom-4 right-4">SKip To Top</button>
     </div>
   );
 }
