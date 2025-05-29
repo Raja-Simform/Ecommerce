@@ -14,8 +14,8 @@ export default function useFetch<T>({ fn, enabled = true }: useFetchProps<T>) {
     setIsLoading(true);
     setError(null);
     try {
-      const Data = await ref.current(value);
-      setData(Data);
+      const response = await ref.current(value);
+      setData(response);
     } catch (err) {
       if (err instanceof Error) {
         setError(err);

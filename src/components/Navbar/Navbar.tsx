@@ -1,7 +1,7 @@
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import user from "../../assets/user.png";
 import { useState, type ChangeEvent } from "react";
-import useDebounce from "../../hooks/useDebounce";
+import debounce from "../../utility/debounce";
 
 export default function Navbar() {
   const [isLogoutMenuOpen, setIsLogoutMenuOpen] = useState(false);
@@ -15,7 +15,7 @@ export default function Navbar() {
     localStorage.removeItem("token");
     navigate("/login");
   }
-  const debouncedSearch = useDebounce(function handleSearch(
+  const debouncedSearch = debounce(function handleSearch(
     e: ChangeEvent<HTMLInputElement>
   ) {
     if (e.target) {
@@ -25,7 +25,7 @@ export default function Navbar() {
   1000);
 
   return (
-    <div className="flex items-center justify-between bg-blue-600 text-blue-50 px-6 py-4 shadow-md">
+    <div className="fixed z-100 w-full h-16 flex items-center justify-between bg-blue-600 text-blue-50 px-6 py-4 shadow-md">
       <nav className="flex items-center gap-8 text-lg font-semibold">
         <Link to="/" className="hover:underline">
           Home

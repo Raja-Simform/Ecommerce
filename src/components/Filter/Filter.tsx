@@ -1,6 +1,6 @@
 export default function Filter() {
   return (
-    <div className="flex flex-col gap-4 p-4 bg-white  shadow-md ">
+    <div className="fixed top-18 left-0 h-screen w-64 p-4 bg-white shadow-md flex flex-col gap-4 overflow-y-auto">
       <h2 className="text-xl font-semibold border-b pb-2 mb-3">Filters</h2>
 
       <div className="flex flex-col gap-2">
