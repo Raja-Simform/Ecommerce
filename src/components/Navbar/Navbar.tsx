@@ -1,11 +1,12 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import user from "../../assets/user.png";
-import { useState } from "react";
+import { useState, type ChangeEvent } from "react";
+import debounce from "../../utility/debounce";
 
 export default function Navbar() {
   const [isLogoutMenuOpen, setIsLogoutMenuOpen] = useState(false);
   const navigate = useNavigate();
-
+  const [, setSearchParams] = useSearchParams();
   function handleClick() {
     setIsLogoutMenuOpen((prev) => !prev);
   }
@@ -14,9 +15,17 @@ export default function Navbar() {
     localStorage.removeItem("token");
     navigate("/login");
   }
+  const debouncedSearch = debounce(function handleSearch(
+    e: ChangeEvent<HTMLInputElement>
+  ) {
+    if (e.target) {
+      setSearchParams({ search: e.target.value });
+    }
+  },
+  1000);
 
   return (
-    <div className="flex items-center justify-between bg-blue-600 text-blue-50 px-6 py-4 shadow-md">
+    <div className="fixed z-100 w-full h-16 flex items-center justify-between bg-blue-600 text-blue-50 px-6 py-4 shadow-md">
       <nav className="flex items-center gap-8 text-lg font-semibold">
         <Link to="/" className="hover:underline">
           Home
@@ -30,6 +39,7 @@ export default function Navbar() {
         type="text"
         className="border border-blue-300 rounded-md px-3 py-1 text-black focus:outline-none focus:ring-2 "
         placeholder="Search Product"
+        onChange={debouncedSearch}
       />
 
       <div className="relative ml-6">
@@ -45,10 +55,10 @@ export default function Navbar() {
           />
         </button>
 
-        {isLogoutMenuOpen&& (
+        {isLogoutMenuOpen && (
           <button
             onClick={handleLogout}
-            className="absolute right-0 mt-2 w-24 rounded-md borde text-black  border-gray-300 px-4 py-2 text-center text-sm font-medium shadow bg-amber-300 hover:bg-amber-100 focus:outline-none focus:ring-2"
+            className="absolute right-0 mt-2 w-24 rounded-md border text-black  border-gray-300 px-4 py-2 text-center text-sm font-medium shadow bg-amber-300 hover:bg-amber-100 focus:outline-none focus:ring-2"
           >
             Logout
           </button>

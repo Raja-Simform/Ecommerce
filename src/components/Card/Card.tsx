@@ -1,12 +1,14 @@
 import { useState } from "react";
-import  { type CardProps, View } from "./CardType";
+import { type CardProps, View } from "./CardType";
 import rupee from "../../assets/rupee.png";
 import dayjs from "dayjs";
+import ScrollToTopButton from "../ScrollToTopButton/ScrollToTopButton";
 
 export default function Card({ products }: CardProps) {
   const [toggle, setToggle] = useState<View>(View.Grid);
+
   return (
-    <div className="flex flex-col items-center p-2 w-full box-border">
+    <div className="ml-64 mt-16 flex flex-col items-center p-4 w-full box-border">
       <div className="flex gap-2 m-3">
         <button
           className={`mt-1 right-1 z-10 border px-4 py-2 rounded  ${
@@ -52,6 +54,7 @@ export default function Card({ products }: CardProps) {
           </div>
         ))}
       </div>
+      <ScrollToTopButton />
     </div>
   );
 }
