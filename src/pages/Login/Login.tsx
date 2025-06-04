@@ -8,6 +8,7 @@ import { loginSchema } from "../../Schema/LoginSchema";
 import LoginForm from "../../components/LoginForm/LoginForm";
 import { apiPaths } from "../../constants/apiPath";
 import Concatenate from "../../utility/concatenate";
+import { TOKEN } from "../../constants/global.constant";
 
 export type FormFields = z.infer<typeof loginSchema>;
 
@@ -25,7 +26,7 @@ export default function Login() {
     fn: loginApi,
     onSuccess: (response) => {
       console.log(response);
-      localStorage.setItem("token", response.data.accessToken);
+      localStorage.setItem(TOKEN, response.data.accessToken);
       navigate("/");
     },
   });

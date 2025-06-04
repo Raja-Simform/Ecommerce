@@ -1,20 +1,18 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
-import { BrowserRouter } from 'react-router-dom'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.tsx";
+import { BrowserRouter } from "react-router-dom";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import { ErrorBoundary } from './components/Error-Boundary/ErrorBoundary.tsx'
+import { ErrorBoundary } from "./components/Error-Boundary/ErrorBoundary.tsx";
 dayjs.extend(relativeTime);
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
-    <ErrorBoundary>
-    <App />
-    </ErrorBoundary>
-   
+      <ErrorBoundary>
+        <App />
+      </ErrorBoundary>
     </BrowserRouter>
-   
-  </StrictMode>,
-)
+  </StrictMode>
+);

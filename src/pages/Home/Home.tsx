@@ -6,6 +6,7 @@ import type ApiResponse from "./HomeType";
 import Filter from "../../components/Filter/Filter";
 import { useSearchParams } from "react-router-dom";
 import { useEffect } from "react";
+import NotFound from "../../components/NotFound/NotFound";
 
 export default function Home() {
   const [searchData] = useSearchParams();
@@ -23,7 +24,7 @@ export default function Home() {
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
-  if (!data) return <div>No data</div>;
+  if (!data) return <NotFound/>;
 
   return (
     <div className="flex ">
