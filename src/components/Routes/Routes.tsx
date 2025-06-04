@@ -3,6 +3,7 @@ import Login from "../../pages/Login/Login";
 import Product from "../../pages/Product/Product";
 import Signup from "../../pages/Signup/Signup";
 import Layout from "../Layout/Layout";
+import NotFound from "../NotFound/NotFound";
 
 export interface RouteItem {
   path: string;
@@ -19,6 +20,7 @@ export const routes:RouteItem[]=[
         path:'',
         element:Home,
         isAuth:true,
+        
       },
       {
         path:'product',
@@ -38,7 +40,7 @@ export const routes:RouteItem[]=[
   },
   {
     path:'*',
-    element:()=><h2>Page Not Found</h2>
+    element:()=><NotFound/>
   }
 
 ]

@@ -9,5 +9,9 @@ export default function Product() {
   if (error) {
     throw new Error("Chill Just testing Error");
   }
-  return <Button onClick={generateError}>Generate Error</Button>;
+  return (
+    <div className="pt-20">
+      <Button onClick={generateError}>Generate Error</Button>
+    </div>
+  );
 }

@@ -8,6 +8,7 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import SignupForm from "../../components/SIgnupForm/SignupForm";
 import { apiPaths } from "../../constants/apiPath";
 import Concatenate from "../../utility/concatenate";
+import { TOKEN } from "../../constants/global.constant";
 
 const signupApi = async (data: SignupApiPayload) => {
   const response = await axios.post(
@@ -31,7 +32,7 @@ export default function Signup() {
   const { mutate, error, isLoading } = useMutate({
     fn: signupApi,
     onSuccess: (response) => {
-      localStorage.setItem("token", response.accessToken);
+      localStorage.setItem(TOKEN, response.accessToken);
       navigate("/login");
     },
   });
